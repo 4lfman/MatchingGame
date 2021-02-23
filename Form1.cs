@@ -31,10 +31,20 @@ namespace MatchingGame
         public Form1()
         {
             InitializeComponent();
+            
+            ChooseIcons();
             AssignIconsToSquares();
         }
 
-        //Assign the icons to random squares
+        private void ChooseIcons()
+        {
+            OwnTextBox iconInputPopup = new OwnTextBox();
+            iconInputPopup.ShowDialog();
+        }
+
+        /// <summary>
+        /// Assign the icons to random squares
+        /// </summary>
         private void AssignIconsToSquares()
         {
             //For each of the 16 labels there will be an icon assigned
