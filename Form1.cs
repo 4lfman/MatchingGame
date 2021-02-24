@@ -12,34 +12,49 @@ namespace MatchingGame
 {
     public partial class Form1 : Form
     {
+        public static string stringIcon;
+
         //This is used to generate random icons for the squares
         Random random = new Random();
 
         //A list over interesting characters 
         //in the Webdings font.
         //Each character appears twice to make it a memory
-        List<string> icons = new List<string>()
+        List<char> icons = new List<char>()
         {
-            "!", "!", "N", "N", ",", ",", "k", "k",
-            "b", "b", "v", "v", "w", "w", "z", "z"
+            //"!", "!", "N", "N", ",", ",", "k", "k",
+            //"b", "b", "v", "v", "w", "w", "z", "z"
         };
 
         //Stores the first and second label that the player clicks on
         Label firstClicked = null;
         Label secondClicked = null;
 
+        /// <summary>
+        /// Runs on start
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
             
             ChooseIcons();
+
             AssignIconsToSquares();
         }
 
+        /// <summary>
+        /// Asks the user to input 8 characters to use as icons
+        /// and then puts them in a list twice
+        /// </summary>
         private void ChooseIcons()
         {
             OwnTextBox iconInputPopup = new OwnTextBox();
             iconInputPopup.ShowDialog();
+
+            //Adds the icons written by the user 
+            //(The second row is to get two versions of each icon)
+            icons = stringIcon.ToList();
+            icons.AddRange(stringIcon.ToList());
         }
 
         /// <summary>
@@ -55,7 +70,7 @@ namespace MatchingGame
                 if (iconLabel != null)
                 {
                     int randomNumber = random.Next(icons.Count);
-                    iconLabel.Text = icons[randomNumber];
+                    iconLabel.Text = icons[randomNumber].ToString();
                     iconLabel.ForeColor = iconLabel.BackColor; //Hides the icons from the player by making the the same color as the background
                     icons.RemoveAt(randomNumber);
                 }

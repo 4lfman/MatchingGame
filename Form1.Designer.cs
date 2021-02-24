@@ -292,6 +292,7 @@ namespace MatchingGame
             this.ClientSize = new System.Drawing.Size(534, 511);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Matching Game";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
